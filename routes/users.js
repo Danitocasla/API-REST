@@ -1,9 +1,22 @@
-const express = require("express")
-const { getItems, getItem, createItem } = require("../controllers/users")
-const router = express.Router()
-// TODO: aquí se declara el GET POST PUT DELETE de las colecciones
-router.get("/", getItems)
+const express = require("express");
+const {
+  getItems,
+  getItem,
+  createItem,
+  updateItem,
+  deleteItem,
+} = require("../controllers/users");
 
-router.post("/", createItem)
+const router = express.Router();
 
-module.exports = router
+router.get("/", getItems);
+
+router.get("/:id", getItem);
+
+router.post("/", createItem);
+
+router.put("/:id", updateItem);
+
+router.delete("/:id", deleteItem);
+
+module.exports = router;
