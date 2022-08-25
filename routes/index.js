@@ -9,9 +9,10 @@ const removeExtension = (fileName) => {
 };
 
 fs.readdirSync(PATH_ROUTES).filter((file) => {
-  const name = removeExtension(file);
-  if (name !== "index") {
-    router.use(`/${name}`, require(`./${file}`));
+  const nameFile = removeExtension(file);
+  const skip = ["index"].includes(nameFile)
+  if (!skip) {
+    router.use(`/${nameFile}`, require(`./${nameFile}`));
   }
 });
 
