@@ -1,11 +1,11 @@
-const { usersModel } = require("../models");
+const {usersModel}  = require("../models");
 /**
  * Obtener lista de registros
  * @param {*} req
  * @param {*} res
  */
 const getItems = async (req, res) => {
-  const data = await usersModel.find({});
+  const data = await usersModel.find({})
   res.send({ data });
 };
 /**

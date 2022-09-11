@@ -1,20 +1,22 @@
-require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const dbConnect = require("./config/mongo");
 const app = express();
+const { port } = require("./config");
+const { dbConnectMySql } = require("./config/mysql");
 
 app.use(cors());
 
 app.use(express.json());
 
-const port = process.env.PORT || 3000;
-
 // Routes
 app.use("/api", require("./routes"));
 
-app.listen(port, () => {
-  console.log("App listening on port " + port);
-});
+try {
+  app.listen(port, () => {
+    console.log(`App listening on http://localhost:${port}`);
+  });
+} catch (error) {
+  console.log("*** SERVER DOWN ***", error);
+}
 
-dbConnect();
+dbConnectMySql();

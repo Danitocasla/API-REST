@@ -1,5 +1,6 @@
-const model = {
-  usersModel: require("./nosql/users"),
+const Model = {
+  userModel: require("./users"),
+  roleModel: require("./roles"),
 };
 
-module.exports = model;
+module.exports = Model;
