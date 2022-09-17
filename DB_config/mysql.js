@@ -1,12 +1,16 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const config = require(".");
 
-
-const sequelize = new Sequelize(config.database, config.user, config.password, {
-  host: config.host,
-  port: config.DB_PORT,
-  dialect: "mysql",
-});
+const sequelize = new Sequelize(
+  config.DATABASE,
+  config.USER_DB,
+  config.PASS_DB,
+  {
+    host: config.HOST,
+    port: config.DB_PORT,
+    dialect: "mysql",
+  }
+);
 
 const dbConnectMySql = async () => {
   try {
