@@ -1,5 +1,10 @@
-module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define("users", {
+const { DataTypes, Model } = require("sequelize");
+const { sequelize } = require("../DB_config/mysql");
+
+class Users extends Model {}
+
+Users.init(
+  {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -30,6 +35,21 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.ENUM("Enable", "Disable"),
       defaultValue: "Enable",
     },
+  },
+  {
+    sequelize,
+    modelName: "users",
+  }
+);
+module.exports = Users;
+/*
+  {
+    User.hasOne(role, {
+    foreignKey: "roleId",
+    sourceKey: "id",
   });
-  return User;
-};
+  role.belongsTo(User, {
+    foreignKey: "roleId",
+    targetId: "id",}
+  }
+    });*/

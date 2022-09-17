@@ -1,15 +1,12 @@
 const { Sequelize, DataTypes } = require("sequelize");
-const config = require("../config");
-const { userModel, roleModel } = require("../models");
+const config = require(".");
+
 
 const sequelize = new Sequelize(config.database, config.user, config.password, {
   host: config.host,
   port: config.DB_PORT,
   dialect: "mysql",
 });
-
-const User = userModel(sequelize, DataTypes);
-const Role = roleModel(sequelize, DataTypes);
 
 const dbConnectMySql = async () => {
   try {
@@ -22,4 +19,4 @@ const dbConnectMySql = async () => {
   }
 };
 
-module.exports = { dbConnectMySql, sequelize, User, Role };
+module.exports = { dbConnectMySql, sequelize };
