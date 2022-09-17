@@ -4,7 +4,7 @@ const app = express();
 const { PORT } = require("./config");
 const { dbConnectMySql } = require("./DB_config/mysql");
 require("./models");
-require("./models/associations/associations");
+require("./DB_associatons")
 
 // Middlewares
 app.use(cors());

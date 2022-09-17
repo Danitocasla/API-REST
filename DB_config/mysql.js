@@ -1,5 +1,5 @@
 const { Sequelize, DataTypes } = require("sequelize");
-const config = require(".");
+const config = require("../config");
 
 const sequelize = new Sequelize(
   config.DATABASE,
@@ -14,7 +14,7 @@ const sequelize = new Sequelize(
 
 const dbConnectMySql = async () => {
   try {
-    await sequelize.sync().then(() => {
+    await sequelize.sync({force:true}).then(() => {
       console.log("*** MYSQL SCHEMA CREATED ***");
     });
     console.log("*** MYSQL CONNECTION SUCESSFULL ***");

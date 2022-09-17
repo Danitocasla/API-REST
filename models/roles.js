@@ -1,26 +1,27 @@
 const { DataTypes, Model } = require("sequelize");
 const { sequelize } = require("../DB_config/mysql");
 
-class Roles extends Model {}
+class Role extends Model {}
 
-Roles.init(
+Role.init(
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    nameRole: {
       type: DataTypes.STRING,
     },
-    description: {
+    descritionRole: {
       type: DataTypes.STRING,
     },
   },
   {
     sequelize,
-    modelName: "roles",
+    modelName: "role",
     timestamps: false,
   }
 );
-module.exports = Roles;
+
+module.exports = Role;

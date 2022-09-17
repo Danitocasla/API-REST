@@ -1,9 +1,9 @@
 const { DataTypes, Model } = require("sequelize");
 const { sequelize } = require("../DB_config/mysql");
 
-class Users extends Model {}
+class User extends Model {}
 
-Users.init(
+User.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -38,18 +38,9 @@ Users.init(
   },
   {
     sequelize,
-    modelName: "users",
+    modelName: "user",
+    timestamps: false,
   }
 );
-module.exports = Users;
-/*
-  {
-    User.hasOne(role, {
-    foreignKey: "roleId",
-    sourceKey: "id",
-  });
-  role.belongsTo(User, {
-    foreignKey: "roleId",
-    targetId: "id",}
-  }
-    });*/
+
+module.exports = User;
