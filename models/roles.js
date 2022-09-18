@@ -13,7 +13,7 @@ Role.init(
     nameRole: {
       type: DataTypes.STRING,
     },
-    descritionRole: {
+    descriptionRole: {
       type: DataTypes.STRING,
     },
   },

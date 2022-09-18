@@ -1,4 +1,4 @@
-const User = require("../models/users");
+const Role = require("../models/roles");
 const handleError = require("../utils/handleError");
 const findAllService = require("../DB_services/serviceFindAll");
 const findOneService = require("../DB_services/serviceFindOne");
@@ -10,11 +10,11 @@ const deleteService = require("../DB_services/serviceDelete");
  * @param {*} req
  * @param {*} res
  */
-const getUsers = async (req, res) => {
+const getRoles = async (req, res) => {
   try {
-    findAllService(User, req, res);
+    findAllService(Role, req, res);
   } catch (error) {
-    handleError("*** ERROR_GET_USERS ***", error, req, res);
+    handleError("*** ERROR_GET_ROLES ***", error, req, res);
   }
 };
 /**
@@ -22,11 +22,11 @@ const getUsers = async (req, res) => {
  * @param {*} req
  * @param {*} res
  */
-const getUser = async (req, res) => {
+const getRole = async (req, res) => {
   try {
-    findOneService(User, req, res);
+    findOneService(Role, req, res);
   } catch (error) {
-    handleError("*** ERROR_GET_USER ***", error, req, res);
+    handleError("*** ERROR_GET_ROLE ***", error, req, res);
   }
 };
 /**
@@ -34,11 +34,11 @@ const getUser = async (req, res) => {
  * @param {*} req
  * @param {*} res
  */
-const createUser = async (req, res) => {
+const createRole = async (req, res) => {
   try {
-    createService(User, req, res);
+    createService(Role, req, res);
   } catch (error) {
-    handleError("*** ERROR_CREATE_USER ***", error, req, res);
+    handleError("*** ERROR_CREATE_ROLE ***", error, req, res);
   }
 };
 /**
@@ -46,12 +46,12 @@ const createUser = async (req, res) => {
  * @param {*} req
  * @param {*} res
  */
-const updateUser = async (req, res) => {
+const updateRole = async (req, res) => {
   try {
-    updateService(User, req, req);
+    updateService(Role, req, req);
     res.send("Update ok");
   } catch (error) {
-    handleError("*** ERROR_UPDATE_USER ***", error, req, res);
+    handleError("*** ERROR_UPDATE_ROLE ***", error, req, res);
   }
 };
 /**
@@ -59,10 +59,10 @@ const updateUser = async (req, res) => {
  * @param {*} req
  * @param {*} res
  */
-const deleteUser = async (req, res) => {
-  deleteService(User, req, res);
+const deleteRole = async (req, res) => {
+  deleteService(Role, req, res);
 
   res.send("Delete ok");
 };
 
-module.exports = { getUsers, getUser, createUser, updateUser, deleteUser };
+module.exports = { getRoles, getRole, createRole, updateRole, deleteRole };

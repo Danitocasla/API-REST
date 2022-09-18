@@ -14,7 +14,7 @@ const sequelize = new Sequelize(
 
 const dbConnectMySql = async () => {
   try {
-    await sequelize.sync({force:true}).then(() => {
+    await sequelize.sync({force:false}).then(() => {
       console.log("*** MYSQL SCHEMA CREATED ***");
     });
     console.log("*** MYSQL CONNECTION SUCESSFULL ***");
